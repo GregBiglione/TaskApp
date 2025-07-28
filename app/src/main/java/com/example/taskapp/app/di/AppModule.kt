@@ -13,6 +13,8 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.SupervisorJob
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -24,11 +26,7 @@ object AppModule {
 
     @Provides
     fun provideTaskDatabase(@ApplicationContext context: Context): TaskDatabase {
-        return Room.databaseBuilder(
-            context,
-            TaskDatabase::class.java,
-            "task_db"
-        ).build()
+        return TaskDatabase.getDatabase(context, CoroutineScope(SupervisorJob()))
     }
 
     //----------------------------------------------------------------------------------------------
