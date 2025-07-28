@@ -2,6 +2,9 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -56,4 +59,31 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    // Hilt ----------------------------------------------------------------------------------------
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+
+    // Stdlib --------------------------------------------------------------------------------------
+    implementation(libs.kotlin.stdlib)
+
+    // Lifecycle (ViewModel + LiveData) ------------------------------------------------------------
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.lifecycle.runtime.ktx.v270)
+
+    // Navigation Compose --------------------------------------------------------------------------
+    implementation(libs.androidx.navigation.compose)
+
+    // Hilt for Compose ----------------------------------------------------------------------------
+    implementation(libs.androidx.hilt.navigation.compose)
+
+    // Room (Local DB) -----------------------------------------------------------------------------
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.room.ktx)
+    kapt(libs.androidx.room.compiler)
+
+    // Coroutines (asynchronism) -------------------------------------------------------------------
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
 }
