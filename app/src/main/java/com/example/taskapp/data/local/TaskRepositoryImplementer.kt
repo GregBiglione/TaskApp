@@ -12,4 +12,12 @@ class TaskRepositoryImplementer(private val dao: TaskDao): TaskRepository {
                 it.toTask()
             }
         }
+
+    // ---------------------------------------------------------------------------------------------
+    // Insert Task
+    // ---------------------------------------------------------------------------------------------
+
+    override suspend fun insertTask(task: Task) {
+        dao.insertTask(TaskEntity.from(task))
+    }
 }
