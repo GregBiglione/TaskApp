@@ -2,8 +2,10 @@ package com.example.taskapp.app.di
 
 import android.content.Context
 import androidx.room.Room
+import androidx.room.RoomDatabase
 import com.example.taskapp.data.local.TaskDao
 import com.example.taskapp.data.local.TaskDatabase
+import com.example.taskapp.data.local.TaskDatabaseCallback
 import com.example.taskapp.data.local.TaskRepositoryImplementer
 import com.example.taskapp.domain.repository.TaskRepository
 import com.example.taskapp.domain.usecase.GetAllTasksUseCase
@@ -16,18 +18,40 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
+import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
     //----------------------------------------------------------------------------------------------
+    // Unique coroutine
+    //----------------------------------------------------------------------------------------------
+
+    @Provides
+    @Singleton
+    @ApplicationScope
+    fun provideApplicationScope() : CoroutineScope = CoroutineScope(SupervisorJob())
+
+    //----------------------------------------------------------------------------------------------
     // Database
     //----------------------------------------------------------------------------------------------
 
     @Provides
-    fun provideTaskDatabase(@ApplicationContext context: Context): TaskDatabase {
-        return TaskDatabase.getDatabase(context, CoroutineScope(SupervisorJob()))
+    @Singleton
+    fun provideTaskDatabase(
+        @ApplicationContext context: Context,
+        taskDao: TaskDao,
+        @ApplicationScope scope: CoroutineScope
+    ): TaskDatabase {
+            return Room.databaseBuilder(
+                context,
+                TaskDatabase::class.java,
+                "task_db"
+            )
+                .addCallback(TaskDatabaseCallback(taskDao, scope))
+                .fallbackToDestructiveMigration()
+                .build()
     }
 
     //----------------------------------------------------------------------------------------------

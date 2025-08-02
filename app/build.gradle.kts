@@ -1,10 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.compose)
-    id("kotlin-kapt")
-    id("dagger.hilt.android.plugin")
     id("com.google.devtools.ksp")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -40,6 +38,9 @@ android {
     buildFeatures {
         compose = true
     }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.3"
+    }
 }
 
 dependencies {
@@ -62,7 +63,7 @@ dependencies {
 
     // Hilt ----------------------------------------------------------------------------------------
     implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
+    ksp(libs.hilt.compiler)
 
     // Stdlib --------------------------------------------------------------------------------------
     implementation(libs.kotlin.stdlib)
@@ -70,7 +71,7 @@ dependencies {
     // Lifecycle (ViewModel + LiveData) ------------------------------------------------------------
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.lifecycle.livedata.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx.v270)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.lifecycle.process)
 
     // Navigation Compose --------------------------------------------------------------------------
@@ -82,7 +83,7 @@ dependencies {
     // Room (Local DB) -----------------------------------------------------------------------------
     implementation(libs.androidx.room.runtime)
     implementation(libs.room.ktx)
-    kapt(libs.androidx.room.compiler)
+    ksp(libs.androidx.room.compiler)
 
     // Coroutines (asynchronism) -------------------------------------------------------------------
     implementation(libs.kotlinx.coroutines.core)
