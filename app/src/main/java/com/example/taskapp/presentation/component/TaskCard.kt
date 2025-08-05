@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -42,8 +43,8 @@ fun TaskCard(title: String, isDone: Boolean, modifier: Modifier = Modifier) {
                 text = title,
                 style = MaterialTheme.typography.titleMedium
             )
-            // Task is done ------------------------------------------------------------------------
             Row {
+                // Task is done --------------------------------------------------------------------
                 IconButton(
                     onClick = {}
                 ) {
@@ -51,6 +52,16 @@ fun TaskCard(title: String, isDone: Boolean, modifier: Modifier = Modifier) {
                         imageVector = Icons.Default.CheckCircle,
                         contentDescription = "",
                         tint = if(isDone) IsDoneColor else DisableColor,
+                    )
+                }
+                // Update Task ---------------------------------------------------------------------
+                IconButton(
+                    onClick = {}
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Edit,
+                        contentDescription = "",
+                        tint = White,
                     )
                 }
                 // Delete task ---------------------------------------------------------------------
