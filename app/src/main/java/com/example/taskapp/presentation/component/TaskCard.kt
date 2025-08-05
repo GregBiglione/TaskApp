@@ -15,11 +15,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.example.taskapp.ui.theme.DisableColor
+import com.example.taskapp.ui.theme.IsDoneColor
 import com.example.taskapp.ui.theme.TaskCardColor
 import com.example.taskapp.ui.theme.White
 
 @Composable
-fun TaskCard(title: String, modifier: Modifier = Modifier) {
+fun TaskCard(title: String, isDone: Boolean, modifier: Modifier = Modifier) {
     Card(
         modifier = modifier
             .fillMaxWidth()
@@ -49,7 +50,7 @@ fun TaskCard(title: String, modifier: Modifier = Modifier) {
                     Icon(
                         imageVector = Icons.Default.CheckCircle,
                         contentDescription = "",
-                        tint = DisableColor,
+                        tint = if(isDone) IsDoneColor else DisableColor,
                     )
                 }
                 // Delete task ---------------------------------------------------------------------
