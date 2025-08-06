@@ -8,10 +8,11 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class TaskViewModel @Inject constructor(taskUseCase: TaskUseCase) : ViewModel() {
+class TaskViewModel @Inject constructor(private val taskUseCase: TaskUseCase) : ViewModel() {
     //----------------------------------------------------------------------------------------------
     // Get all tasks
     //----------------------------------------------------------------------------------------------
@@ -22,4 +23,14 @@ class TaskViewModel @Inject constructor(taskUseCase: TaskUseCase) : ViewModel() 
             started = SharingStarted.WhileSubscribed(5000),
             initialValue = emptyList()
         )
+
+    //----------------------------------------------------------------------------------------------
+    // Update task
+    //----------------------------------------------------------------------------------------------
+
+    fun updateTask(task: Task) {
+        viewModelScope.launch {
+            taskUseCase.updateTaskUseCase(task)
+        }
+    }
 }
