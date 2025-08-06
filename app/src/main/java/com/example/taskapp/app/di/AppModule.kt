@@ -8,6 +8,7 @@ import com.example.taskapp.domain.repository.TaskRepository
 import com.example.taskapp.domain.usecase.GetAllTasksUseCase
 import com.example.taskapp.domain.usecase.InsertTaskUseCase
 import com.example.taskapp.domain.usecase.TaskUseCase
+import com.example.taskapp.domain.usecase.UpdateTaskUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -50,6 +51,7 @@ object AppModule {
     @Provides
     fun provideTaskUseCase(taskRepository: TaskRepository): TaskUseCase = TaskUseCase(
         getAllTasksUseCase = GetAllTasksUseCase(taskRepository),
-        insertTaskUseCase = InsertTaskUseCase(taskRepository)
+        insertTaskUseCase = InsertTaskUseCase(taskRepository),
+        updateTaskUseCase = UpdateTaskUseCase(taskRepository)
     )
 }
