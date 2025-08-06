@@ -14,8 +14,8 @@ fun CustomOutlinedTextField(
     ) {
     OutlinedTextField(
         value = newTitle,
-        onValueChange = {
-            onValueChange
+        onValueChange = { value ->
+            onValueChange(value)
         },
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(Ten),

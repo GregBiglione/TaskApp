@@ -18,10 +18,12 @@ import com.example.taskapp.ui.theme.TaskCardColor
 @Composable
 fun CustomButton(
         buttonTitle: String,
+        onClick: (() -> Unit)? = null,
         onGoBackClick: (() -> Unit)? = null,
     ) {
     Button(
         onClick = {
+            onClick?.invoke()
             onGoBackClick?.invoke()
         },
         colors = ButtonDefaults.buttonColors(
