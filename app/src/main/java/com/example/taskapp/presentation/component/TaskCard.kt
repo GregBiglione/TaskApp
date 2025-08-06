@@ -21,7 +21,12 @@ import com.example.taskapp.ui.theme.TaskCardColor
 import com.example.taskapp.ui.theme.White
 
 @Composable
-fun TaskCard(title: String, isDone: Boolean, modifier: Modifier = Modifier) {
+fun TaskCard(
+    title: String,
+    isDone: Boolean,
+    modifier: Modifier = Modifier,
+    onEditClick: () -> Unit = {},
+) {
     Card(
         modifier = modifier
             .fillMaxWidth()
@@ -56,7 +61,9 @@ fun TaskCard(title: String, isDone: Boolean, modifier: Modifier = Modifier) {
                 }
                 // Update Task ---------------------------------------------------------------------
                 IconButton(
-                    onClick = {}
+                    onClick = {
+                        onEditClick()
+                    }
                 ) {
                     Icon(
                         imageVector = Icons.Default.Edit,
