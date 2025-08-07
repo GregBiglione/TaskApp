@@ -59,6 +59,10 @@ fun UpdateTaskScreen(
                 onValueChange = {
                     newTile = it
                 },
+                {
+                    viewModel.updateTask(task, newTile)
+                    goBack(navController)
+                }
             )
             // Spacer ------------------------------------------------------------------------------
             CustomSpacer()
