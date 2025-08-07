@@ -1,4 +1,5 @@
 import Dimension.Medium
+import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -70,11 +71,14 @@ fun UpdateTaskScreen(
             CustomButton(
                 UPDATE_TASK_SCREEN_BUTTON_TITLE,
                 onClick = {
-                    viewModel.updateTask(task, newTile)
+                    if(newTile != task?.title && newTile.isNotBlank()) {
+                        viewModel.updateTask(task, newTile)
+                        goBack(navController)
+                    }
+                    else {
+                        Log.e("Title not changed", "❌ Title is the same or empty")
+                    }
                 },
-                onGoBackClick = {
-                    goBack(navController)
-                }
             )
         }
     }

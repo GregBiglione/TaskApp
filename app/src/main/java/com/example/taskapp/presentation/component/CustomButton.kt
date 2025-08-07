@@ -19,12 +19,12 @@ import com.example.taskapp.ui.theme.TaskCardColor
 fun CustomButton(
         buttonTitle: String,
         onClick: (() -> Unit)? = null,
-        onGoBackClick: (() -> Unit)? = null,
+        //onGoBackClick: (() -> Unit)? = null,
     ) {
     Button(
         onClick = {
             onClick?.invoke()
-            onGoBackClick?.invoke()
+            //onGoBackClick?.invoke()
         },
         colors = ButtonDefaults.buttonColors(
             containerColor = TaskCardColor,
