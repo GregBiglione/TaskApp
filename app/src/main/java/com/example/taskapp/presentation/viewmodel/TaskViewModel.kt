@@ -39,4 +39,14 @@ class TaskViewModel @Inject constructor(private val taskUseCase: TaskUseCase) : 
             }
         }
     }
+
+    //----------------------------------------------------------------------------------------------
+    // Insert task
+    //----------------------------------------------------------------------------------------------
+
+    fun insertTask(task: Task) {
+        viewModelScope.launch {
+            taskUseCase.insertTaskUseCase(task)
+        }
+    }
 }
