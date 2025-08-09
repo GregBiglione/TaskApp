@@ -16,5 +16,9 @@ class Constant {
 
         // Navigation ------------------------------------------------------------------------------
         const val TITLE = "title"
+
+        // Toast message ---------------------------------------------------------------------------
+        const val SUCCESS_TOAST_MESSAGE = "Task Updated"
+        const val ERROR_TOAST_MESSAGE = "Title not changed or empty"
     }
 }
