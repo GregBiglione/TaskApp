@@ -36,3 +36,7 @@ fun goBack(navController: NavController) {
 fun goToEditTaskScreen(navController: NavHostController, title: String) {
     navController.navigate(Routes.updateTaskRouteWithTitle(title))
 }
+
+fun goToAddTaskScreen(navController: NavController) {
+    navController.navigate(Routes.addTaskRoute())
+}

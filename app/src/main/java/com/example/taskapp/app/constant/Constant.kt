@@ -13,6 +13,7 @@ class Constant {
         // Update Task Screen ----------------------------------------------------------------------
         const val UPDATE_TASK_SCREEN_TITLE = "Update task"
         const val UPDATE_TASK_SCREEN_BUTTON_TITLE = "Update"
+        const val ADD_TASK_SCREEN_TITLE = "Add task"
 
         // Navigation ------------------------------------------------------------------------------
         const val TITLE = "title"

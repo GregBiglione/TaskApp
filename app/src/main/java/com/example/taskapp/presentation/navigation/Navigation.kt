@@ -27,5 +27,12 @@ fun AppNavigation(navController: NavHostController) {
                 //onUpdateClicked = TODO()
             )
         }
+
+        // Add task screen -------------------------------------------------------------------------
+        composable(Routes.ADD_TASK) {
+            AddTaskScreen(
+                navController = navController,
+            )
+        }
     }
 }

@@ -6,6 +6,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -18,7 +23,10 @@ import com.example.taskapp.app.constant.Constant.Companion.APP_NAME
 import com.example.taskapp.app.constant.Constant.Companion.UPDATE_TASK_SCREEN_TITLE
 import com.example.taskapp.presentation.navigation.Routes
 import com.example.taskapp.presentation.viewmodel.TaskViewModel
+import com.example.taskapp.ui.theme.TaskCardColor
+import com.example.taskapp.ui.theme.White
 import goBack
+import goToAddTaskScreen
 import goToEditTaskScreen
 
 @Composable
@@ -33,6 +41,21 @@ fun TaskScreen(
             CustomCenterAlignedTopAppBar(
                 title = APP_NAME,
             )
+        },
+        floatingActionButton = {
+            FloatingActionButton(
+                onClick = {
+                    goToAddTaskScreen(navController)
+                },
+                shape = CircleShape,
+                containerColor = TaskCardColor,
+                contentColor = White
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Add,
+                    contentDescription = "",
+                )
+            }
         }
     ) { innerPadding ->
         LazyColumn(modifier = Modifier.padding(innerPadding)) {
