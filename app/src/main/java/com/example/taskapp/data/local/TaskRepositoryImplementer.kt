@@ -29,4 +29,12 @@ class TaskRepositoryImplementer(private val dao: TaskDao): TaskRepository {
     override suspend fun updateTask(task: Task) {
         dao.updateTask(TaskEntity.from(task))
     }
+
+    // ---------------------------------------------------------------------------------------------
+    // Remove Task
+    // ---------------------------------------------------------------------------------------------
+
+    override suspend fun removeTask(task: Task) {
+        dao.removeTask(TaskEntity.from(task))
+    }
 }
