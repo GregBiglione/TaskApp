@@ -110,15 +110,16 @@ fun UpdateTaskScreen(
             CustomButton(
                 UPDATE_TASK_SCREEN_BUTTON_TITLE,
                 onClick = {
-                    coroutineScope.launch {
-                        if (newTile != task?.title && newTile.isNotBlank()) {
-                            viewModel.updateTask(task, newTile)
-                            snackbarHostState.showSnackbar(SUCCESS_TOAST_MESSAGE)
-                            goBack(navController)
-                        } else {
-                            snackbarHostState.showSnackbar(ERROR_TOAST_MESSAGE)
-                        }
-                    }
+                    updateTask(
+                        coroutineScope = coroutineScope,
+                        newTitle = newTile,
+                        task = task,
+                        viewmodel = viewModel,
+                        snackbarHostState = snackbarHostState,
+                        successMessage = SUCCESS_TOAST_MESSAGE,
+                        navController = navController,
+                        errorMessage = ERROR_TOAST_MESSAGE
+                    )
                 },
             )
         }

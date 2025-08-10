@@ -23,8 +23,10 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.taskapp.app.constant.Constant.Companion.ADD_TASK_SCREEN_TITLE
 import com.example.taskapp.app.constant.Constant.Companion.ERROR_ADD_TOAST_MESSAGE
+import com.example.taskapp.app.constant.Constant.Companion.ERROR_TOAST_MESSAGE
 import com.example.taskapp.app.constant.Constant.Companion.SUCCESS_ADD_TOAST_MESSAGE
 import com.example.taskapp.app.constant.Constant.Companion.SUCCESS_TOAST_MESSAGE
+import com.example.taskapp.app.constant.Constant.Companion.UPDATE_TASK_SCREEN_BUTTON_TITLE
 import com.example.taskapp.presentation.viewmodel.TaskViewModel
 import com.example.taskapp.ui.theme.ErrorColor
 import com.example.taskapp.ui.theme.SuccessColor
@@ -91,21 +93,23 @@ fun AddTaskScreen(
                     )
                 }
             )
-            /*CustomOutlinedTextField(
-                newTitle = text,
-                onValueChange = {
-                    text = it
-                },
-                {
-                    viewModel.insertTask(text)
-                    goBack(navController)
-                },
-                snackbarHostState = snackbarHostState,
-                coroutineScope = coroutineScope
-            )*/
             // Spacer ------------------------------------------------------------------------------
             CustomSpacer()
             // Button ------------------------------------------------------------------------------
+            CustomButton(
+                ADD_TASK_SCREEN_TITLE,
+                onClick = {
+                    addTask(
+                        coroutineScope = coroutineScope,
+                        text = text,
+                        viewmodel = viewModel,
+                        snackbarHostState = snackbarHostState,
+                        successMessage = SUCCESS_ADD_TOAST_MESSAGE,
+                        navController = navController,
+                        errorMessage = ERROR_ADD_TOAST_MESSAGE
+                    )
+                },
+            )
         }
     }
 }
