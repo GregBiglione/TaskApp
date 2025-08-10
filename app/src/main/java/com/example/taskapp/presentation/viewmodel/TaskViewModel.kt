@@ -55,4 +55,14 @@ class TaskViewModel @Inject constructor(private val taskUseCase: TaskUseCase) : 
             taskUseCase.insertTaskUseCase(task)
         }
     }
+
+    //----------------------------------------------------------------------------------------------
+    // Delete task
+    //----------------------------------------------------------------------------------------------
+
+    fun removeTask(task: Task) {
+        viewModelScope.launch {
+            taskUseCase.removeTaskUseCase(task)
+        }
+    }
 }
