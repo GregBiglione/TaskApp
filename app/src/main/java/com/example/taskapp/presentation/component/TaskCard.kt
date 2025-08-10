@@ -26,6 +26,7 @@ fun TaskCard(
     isDone: Boolean,
     modifier: Modifier = Modifier,
     onEditClick: () -> Unit = {},
+    onRemoveClick: () -> Unit = {}
 ) {
     Card(
         modifier = modifier
@@ -73,7 +74,9 @@ fun TaskCard(
                 }
                 // Delete task ---------------------------------------------------------------------
                 IconButton(
-                    onClick = {}
+                    onClick = {
+                        onRemoveClick()
+                    }
                 ) {
                     Icon(
                         imageVector = Icons.Default.Delete,

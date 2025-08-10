@@ -67,6 +67,9 @@ fun TaskScreen(
                     onEditClick = {
                         goToEditTaskScreen(navController, task.title)
                     },
+                    onRemoveClick = {
+                        viewModel.removeTask(task)
+                    }
                 )
             }
         }
