@@ -21,5 +21,7 @@ class Constant {
         // Toast message ---------------------------------------------------------------------------
         const val SUCCESS_TOAST_MESSAGE = "Task Updated"
         const val ERROR_TOAST_MESSAGE = "Title not changed or empty"
+        const val SUCCESS_ADD_TOAST_MESSAGE = "Task Added"
+        const val ERROR_ADD_TOAST_MESSAGE = "Enter a title"
     }
 }

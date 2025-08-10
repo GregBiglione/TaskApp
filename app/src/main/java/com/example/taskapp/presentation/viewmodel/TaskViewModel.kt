@@ -31,7 +31,7 @@ class TaskViewModel @Inject constructor(private val taskUseCase: TaskUseCase) : 
     fun updateTask(task: Task?, newTitle: String) {
         task?.let {
             val updatedTask = it.copy(
-                title = newTitle
+                title = newTitle.trim()
             )
 
             viewModelScope.launch {
@@ -44,7 +44,13 @@ class TaskViewModel @Inject constructor(private val taskUseCase: TaskUseCase) : 
     // Insert task
     //----------------------------------------------------------------------------------------------
 
-    fun insertTask(task: Task) {
+    fun insertTask(title: String) {
+        val task = Task(
+            id = 0,
+            title = title.trim(),
+            isDone = false
+        )
+
         viewModelScope.launch {
             taskUseCase.insertTaskUseCase(task)
         }

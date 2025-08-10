@@ -22,7 +22,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.taskapp.app.constant.Constant.Companion.ERROR_ADD_TOAST_MESSAGE
 import com.example.taskapp.app.constant.Constant.Companion.ERROR_TOAST_MESSAGE
+import com.example.taskapp.app.constant.Constant.Companion.SUCCESS_ADD_TOAST_MESSAGE
 import com.example.taskapp.app.constant.Constant.Companion.SUCCESS_TOAST_MESSAGE
 import com.example.taskapp.app.constant.Constant.Companion.UPDATE_TASK_SCREEN_BUTTON_TITLE
 import com.example.taskapp.app.constant.Constant.Companion.UPDATE_TASK_SCREEN_TITLE
@@ -85,16 +87,22 @@ fun UpdateTaskScreen(
         ) {
             // Text field --------------------------------------------------------------------------
             CustomOutlinedTextField(
-                newTitle = newTile,
+                title = newTile,
                 onValueChange = {
                     newTile = it
                 },
-                {
-                    viewModel.updateTask(task, newTile)
-                    goBack(navController)
-                },
-                snackbarHostState = snackbarHostState,
-                coroutineScope = coroutineScope
+                onDone =  {
+                    updateTask(
+                        coroutineScope = coroutineScope,
+                        newTitle = newTile,
+                        task = task,
+                        viewmodel = viewModel,
+                        snackbarHostState = snackbarHostState,
+                        successMessage = SUCCESS_TOAST_MESSAGE,
+                        navController = navController,
+                        errorMessage = ERROR_TOAST_MESSAGE
+                    )
+                }
             )
             // Spacer ------------------------------------------------------------------------------
             CustomSpacer()
