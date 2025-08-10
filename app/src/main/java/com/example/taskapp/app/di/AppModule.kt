@@ -7,6 +7,7 @@ import com.example.taskapp.data.local.TaskRepositoryImplementer
 import com.example.taskapp.domain.repository.TaskRepository
 import com.example.taskapp.domain.usecase.GetAllTasksUseCase
 import com.example.taskapp.domain.usecase.InsertTaskUseCase
+import com.example.taskapp.domain.usecase.RemoveTaskUseCase
 import com.example.taskapp.domain.usecase.TaskUseCase
 import com.example.taskapp.domain.usecase.UpdateTaskUseCase
 import dagger.Module
@@ -52,6 +53,7 @@ object AppModule {
     fun provideTaskUseCase(taskRepository: TaskRepository): TaskUseCase = TaskUseCase(
         getAllTasksUseCase = GetAllTasksUseCase(taskRepository),
         insertTaskUseCase = InsertTaskUseCase(taskRepository),
-        updateTaskUseCase = UpdateTaskUseCase(taskRepository)
+        updateTaskUseCase = UpdateTaskUseCase(taskRepository),
+        removeTaskUseCase = RemoveTaskUseCase(taskRepository)
     )
 }
