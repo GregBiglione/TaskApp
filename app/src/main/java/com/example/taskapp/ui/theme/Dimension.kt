@@ -7,4 +7,5 @@ object Dimension {
     val Medium = 16.dp
     val spacerHeight = 24.dp
     val buttonHeight = 56.dp
+    val taskCardHeight = 80.dp
 }

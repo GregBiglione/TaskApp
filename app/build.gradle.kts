@@ -90,4 +90,7 @@ dependencies {
     // Coroutines (asynchronism) -------------------------------------------------------------------
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.coroutines.android)
+
+    //Dismiss --------------------------------------------------------------------------------------
+    implementation(libs.androidx.material)
 }

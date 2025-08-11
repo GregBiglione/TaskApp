@@ -1,7 +1,9 @@
 package com.example.taskapp.presentation.component
 
 import CustomCenterAlignedTopAppBar
+import SwipeToDismissCard
 import TaskCard
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -60,17 +62,23 @@ fun TaskScreen(
     ) { innerPadding ->
         LazyColumn(modifier = Modifier.padding(innerPadding)) {
             items(taskList) { task ->
-                TaskCard(
-                    task.title,
-                    task.isDone,
-                    modifier = Modifier.padding(0.dp),
-                    onEditClick = {
-                        goToEditTaskScreen(navController, task.title)
-                    },
-                    onRemoveClick = {
+                SwipeToDismissCard(
+                    onSwipe = {
                         viewModel.removeTask(task)
                     }
-                )
+                ) {
+                    TaskCard(
+                        task.title,
+                        task.isDone,
+                        modifier = Modifier.padding(0.dp),
+                        onEditClick = {
+                            goToEditTaskScreen(navController, task.title)
+                        },
+                        onRemoveClick = {
+                            viewModel.removeTask(task)
+                        }
+                    )
+                }
             }
         }
     }
