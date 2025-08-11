@@ -26,7 +26,8 @@ fun TaskCard(
     isDone: Boolean,
     modifier: Modifier = Modifier,
     onEditClick: () -> Unit = {},
-    onRemoveClick: () -> Unit = {}
+    onRemoveClick: () -> Unit = {},
+    onIsDoneClick: () -> Unit = {}
 ) {
     Card(
         modifier = modifier
@@ -52,7 +53,9 @@ fun TaskCard(
             Row {
                 // Task is done --------------------------------------------------------------------
                 IconButton(
-                    onClick = {}
+                    onClick = {
+                        onIsDoneClick()
+                    }
                 ) {
                     Icon(
                         imageVector = Icons.Default.CheckCircle,

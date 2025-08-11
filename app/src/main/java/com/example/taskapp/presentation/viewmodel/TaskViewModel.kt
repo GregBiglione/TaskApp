@@ -1,5 +1,6 @@
 package com.example.taskapp.presentation.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.taskapp.domain.model.Task
@@ -41,6 +42,22 @@ class TaskViewModel @Inject constructor(private val taskUseCase: TaskUseCase) : 
     }
 
     //----------------------------------------------------------------------------------------------
+    // Update is done
+    //----------------------------------------------------------------------------------------------
+
+    fun updateIsDone(task: Task?) {
+        task?.let {
+            val updatedTask = it.copy(
+                isDone = !it.isDone
+            )
+
+            viewModelScope.launch {
+                taskUseCase.updateTaskUseCase(updatedTask)
+            }
+        }
+    }
+
+    //----------------------------------------------------------------------------------------------
     // Insert task
     //----------------------------------------------------------------------------------------------
 
@@ -53,6 +70,7 @@ class TaskViewModel @Inject constructor(private val taskUseCase: TaskUseCase) : 
 
         viewModelScope.launch {
             taskUseCase.insertTaskUseCase(task)
+            Log.d("New task", "$task")
         }
     }
 

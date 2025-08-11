@@ -3,6 +3,7 @@ package com.example.taskapp.presentation.component
 import CustomCenterAlignedTopAppBar
 import SwipeToDismissCard
 import TaskCard
+import android.util.Log
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -76,6 +77,10 @@ fun TaskScreen(
                         },
                         onRemoveClick = {
                             viewModel.removeTask(task)
+                        },
+                        onIsDoneClick = {
+                            viewModel.updateIsDone(task)
+                            Log.d("Task is done or not", "$taskList\n$task")
                         }
                     )
                 }
