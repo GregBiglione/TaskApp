@@ -85,15 +85,25 @@ fun addTask(coroutineScope: CoroutineScope, text: String,
 
 fun updateTask(coroutineScope: CoroutineScope, newTitle: String, task: Task?,
                viewmodel: TaskViewModel, snackbarHostState: SnackbarHostState,
-               successMessage: String, navController: NavController, errorMessage: String) {
+               successMessage: String, navController: NavController,
+               errorMessage: String, onStart: () -> Unit, onComplete: () -> Unit) {
     coroutineScope.launch{
-        if(newTitle != task?.title && newTitle.isNotBlank()){
-            viewmodel.updateTask(task, newTitle)
-            snackbarHostState.showSnackbar(successMessage)
-            goBack(navController)
+        try {
+            if(newTitle != task?.title && newTitle.isNotBlank()){
+                onStart()
+                viewmodel.updateTask(task, newTitle)
+                snackbarHostState.showSnackbar(successMessage)
+                goBack(navController)
+            }
+            else {
+                snackbarHostState.showSnackbar(errorMessage)
+            }
         }
-        else {
-            snackbarHostState.showSnackbar(errorMessage)
+        catch (e: Exception) {
+            snackbarHostState.showSnackbar(errorMessage1 +e.message + errorMessage2)
+        }
+        finally {
+            onComplete()
         }
     }
 }

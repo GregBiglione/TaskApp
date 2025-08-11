@@ -50,6 +50,7 @@ fun UpdateTaskScreen(
     }
     val snackbarHostState = remember { SnackbarHostState() }
     val coroutineScope = rememberCoroutineScope()
+    var isClickable by remember { mutableStateOf(true) }
 
     Scaffold(
         topBar = {
@@ -100,7 +101,13 @@ fun UpdateTaskScreen(
                         snackbarHostState = snackbarHostState,
                         successMessage = SUCCESS_TOAST_MESSAGE,
                         navController = navController,
-                        errorMessage = ERROR_TOAST_MESSAGE
+                        errorMessage = ERROR_TOAST_MESSAGE,
+                        onStart = {
+                            isClickable = false
+                        },
+                        onComplete = {
+                            isClickable = true
+                        }
                     )
                 }
             )
@@ -118,9 +125,16 @@ fun UpdateTaskScreen(
                         snackbarHostState = snackbarHostState,
                         successMessage = SUCCESS_TOAST_MESSAGE,
                         navController = navController,
-                        errorMessage = ERROR_TOAST_MESSAGE
+                        errorMessage = ERROR_TOAST_MESSAGE,
+                        onStart = {
+                            isClickable = false
+                        },
+                        onComplete = {
+                            isClickable = true
+                        }
                     )
                 },
+                isClickable = isClickable
             )
         }
     }
