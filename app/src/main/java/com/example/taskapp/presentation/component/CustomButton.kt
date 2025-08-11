@@ -11,24 +11,27 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import com.example.taskapp.ui.theme.DisableColor
 import com.example.taskapp.ui.theme.FontSize.buttonTextSize
 import com.example.taskapp.ui.theme.TaskCardColor
+import com.example.taskapp.ui.theme.White
 
 @Composable
 fun CustomButton(
         buttonTitle: String,
         onClick: (() -> Unit)? = null,
-        //onGoBackClick: (() -> Unit)? = null,
+        isClickable: Boolean = true
     ) {
     Button(
         onClick = {
             onClick?.invoke()
-            //onGoBackClick?.invoke()
         },
+        enabled = isClickable,
         colors = ButtonDefaults.buttonColors(
             containerColor = TaskCardColor,
-            contentColor = Color.White
+            contentColor = White,
+            disabledContainerColor = DisableColor,
+            disabledContentColor = White
         ),
         modifier = Modifier.fillMaxWidth()
             .height(buttonHeight),

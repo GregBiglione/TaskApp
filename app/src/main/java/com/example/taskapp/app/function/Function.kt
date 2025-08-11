@@ -7,6 +7,8 @@ import androidx.navigation.NavHostController
 import com.example.taskapp.app.constant.Constant.Companion.TASK_TITLE1
 import com.example.taskapp.app.constant.Constant.Companion.TASK_TITLE2
 import com.example.taskapp.app.constant.Constant.Companion.TASK_TITLE3
+import com.example.taskapp.app.constant.Constant.Companion.errorMessage1
+import com.example.taskapp.app.constant.Constant.Companion.errorMessage2
 import com.example.taskapp.data.local.TaskDatabase
 import com.example.taskapp.data.local.TaskEntity
 import com.example.taskapp.domain.model.Task
@@ -54,15 +56,25 @@ fun goToAddTaskScreen(navController: NavController) {
 
 fun addTask(coroutineScope: CoroutineScope, text: String,
             viewmodel: TaskViewModel, snackbarHostState: SnackbarHostState,
-            successMessage: String, navController: NavController, errorMessage: String) {
+            successMessage: String, navController: NavController,
+            errorMessage: String, onStart: () -> Unit, onComplete: () -> Unit) {
     coroutineScope.launch{
-        if(text.isNotBlank() && text.isNotEmpty()){
-            viewmodel.insertTask(text)
-            snackbarHostState.showSnackbar(successMessage)
-            goBack(navController)
+        try {
+            if(text.isNotBlank() && text.isNotEmpty()){
+                onStart()
+                viewmodel.insertTask(text)
+                snackbarHostState.showSnackbar(successMessage)
+                goBack(navController)
+            }
+            else {
+                snackbarHostState.showSnackbar(errorMessage)
+            }
         }
-        else {
-            snackbarHostState.showSnackbar(errorMessage)
+        catch (e: Exception) {
+            snackbarHostState.showSnackbar(errorMessage1 +e.message + errorMessage2)
+        }
+        finally {
+            onComplete()
         }
     }
 }
