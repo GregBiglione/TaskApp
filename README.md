@@ -2,11 +2,13 @@
 
 <h2>🎯 Application features</h2></br>
 <ul>
-  <li>Display differents tasks</li>
+  <li>Display different tasks</li>
   <li>Add a task</li>
   <li>Update a task</li>
   <li>Mark as done</li>
   <li>Remove on click or on swipe</li>
+  <li>Store data in a local database (Room)</li>
+  <li>Application can be used even without a network connection</li>
 </ul>
 
 <h2>🧱 Architecture</h2></br>
@@ -14,7 +16,7 @@
   <li>MVVM</li>
   <li>Clean architecture</li>
   <li>Dependency injection</li>
-  <li>JetPack Compose, StateFLow</li>
+  <li>JetPack Compose, StateFlow</li>
 </ul>
 
 <h2>🎬 Application demo</h2></br>
@@ -28,10 +30,10 @@
 
 <img src ="https://github.com/GregBiglione/TaskApp/blob/master/app/src/main/res/drawable/update_with_button.gif" title = "Update with button" alt = "Update with button" width="273" height="450"> <img src ="https://github.com/GregBiglione/TaskApp/blob/master/app/src/main/res/drawable/is_done.gif" title = "Mark as done" alt = "Mark as done" width="273" height="450"> <img src ="https://github.com/GregBiglione/TaskApp/blob/master/app/src/main/res/drawable/remove.gif" title = "Remove" alt = "Remove" width="273" height="450">
 
-<h2>🔧 Dependency</h2></br>
+<h2>🔧 Dependencies</h2></br>
 
 <ul>
- <li><a href=" https://developer.android.com/develop/ui/compose/documentation?hl=fr">Jetpack Compose</a></li>
+ <li><a href="https://developer.android.com/develop/ui/compose/documentation?hl=fr">Jetpack Compose</a></li>
  <li><a href="https://developer.android.com/training/dependency-injection/hilt-android?hl=fr">Hilt</a></li> 
  <li><a href="https://kotlinlang.org/api/core/kotlin-stdlib/">Kotlin Standard Library (Stdlib)</a></li> 
  <li><a href="https://developer.android.com/topic/libraries/architecture/viewmodel?hl=fr">Lifecycle ViewModel</a></li>
