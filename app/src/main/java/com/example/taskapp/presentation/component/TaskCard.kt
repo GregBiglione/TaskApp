@@ -32,7 +32,10 @@ fun TaskCard(
     Card(
         modifier = modifier
             .fillMaxWidth()
-            .padding(Dimension.Small),
+            .padding(
+                start = Dimension.Small,
+                end = Dimension.Small
+            ),
         colors = CardDefaults.cardColors(
             containerColor = TaskCardColor
         ),

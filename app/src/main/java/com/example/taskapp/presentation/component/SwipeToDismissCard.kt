@@ -65,9 +65,6 @@ fun SwipeToDismissCard(
                     Box(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(
-                                vertical = Dimension.Small
-                            )
                             .height(
                                 with((density)) {
                                     contentHeight.toDp()
