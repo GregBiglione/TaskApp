@@ -1,4 +1,5 @@
 import androidx.compose.material3.SnackbarHostState
+import androidx.compose.ui.graphics.Color
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelStoreOwner
@@ -18,6 +19,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
+import kotlin.math.max
 
 
 //--------------------------------------------------------------------------------------------------
@@ -106,4 +108,17 @@ fun updateTask(coroutineScope: CoroutineScope, newTitle: String, task: Task?,
             onComplete()
         }
     }
+}
+
+//--------------------------------------------------------------------------------------------------
+// Darker a color
+//--------------------------------------------------------------------------------------------------
+
+fun Color.darker(factor: Float = 0.6f): Color {
+    return Color(
+        red = max(0f, red * factor),
+        green = max(0f, green * factor),
+        blue = max(0f, blue * factor),
+        alpha = alpha
+    )
 }

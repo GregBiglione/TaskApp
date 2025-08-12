@@ -32,6 +32,7 @@ import com.example.taskapp.app.constant.Constant.Companion.APP_NAME
 import com.example.taskapp.app.constant.Constant.Companion.UPDATE_TASK_SCREEN_TITLE
 import com.example.taskapp.presentation.navigation.Routes
 import com.example.taskapp.presentation.viewmodel.TaskViewModel
+import com.example.taskapp.ui.theme.DarkTaskColor
 import com.example.taskapp.ui.theme.TaskCardColor
 import com.example.taskapp.ui.theme.White
 import goBack
@@ -57,7 +58,7 @@ fun TaskScreen(
                     goToAddTaskScreen(navController)
                 },
                 shape = CircleShape,
-                containerColor = TaskCardColor,
+                containerColor = DarkTaskColor,
                 contentColor = White
             ) {
                 Icon(
