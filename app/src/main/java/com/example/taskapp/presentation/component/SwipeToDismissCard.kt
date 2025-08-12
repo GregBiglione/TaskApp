@@ -46,6 +46,8 @@ fun SwipeToDismissCard(
             }
         }
     )
+    val isDismissInProgress = dismissState.targetValue == DismissValue.DismissedToStart ||
+            dismissState.progress.fraction > 0.9f
     val isVisible = dismissState.currentValue != DismissValue.DismissedToStart
     var contentHeight by remember { mutableStateOf(0) } // 1
     val density = LocalDensity.current
@@ -61,7 +63,7 @@ fun SwipeToDismissCard(
             ),
             modifier = Modifier.height(taskCardHeight),
             background = {
-                if(dismissState.dismissDirection != null) {
+                if(dismissState.dismissDirection != null && isDismissInProgress) {
                     Box(
                         modifier = Modifier
                             .fillMaxWidth()
