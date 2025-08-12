@@ -13,7 +13,7 @@
 <ul>
   <li>MVVM</li>
   <li>Clean architecture</li>
-  <li>Dependecy injection</li>
+  <li>Dependency injection</li>
   <li>JetPack Compose, StateFLow</li>
 </ul>
 
@@ -29,39 +29,26 @@
 <img src ="https://github.com/GregBiglione/TaskApp/blob/master/app/src/main/res/drawable/update_with_button.gif" title = "Update with button" alt = "Update with button" width="273" height="450"> <img src ="https://github.com/GregBiglione/TaskApp/blob/master/app/src/main/res/drawable/is_done.gif" title = "Mark as done" alt = "Mark as done" width="273" height="450"> <img src ="https://github.com/GregBiglione/TaskApp/blob/master/app/src/main/res/drawable/remove.gif" title = "Remove" alt = "Remove" width="273" height="450">
 
 <h2>🔧 Dependency</h2></br>
+
 <ul>
+ <li><a href=" https://developer.android.com/develop/ui/compose/documentation?hl=fr">Jetpack Compose</a></li>
  <li><a href="https://developer.android.com/training/dependency-injection/hilt-android?hl=fr">Hilt</a></li> 
-<li><a href="https://kotlinlang.org/api/core/kotlin-stdlib/"></a>Kotlin Standard Library (Stdlib)</li> 
-<li><a href="https://developer.android.com/topic/libraries/architecture/viewmodel?hl=fr"></a>Lifecycle ViewModel</li>
-<li><a href="https://developer.android.com/topic/libraries/architecture/livedata?hl=fr"></a>Lifecycle LiveData</li>
-<li><a href="https://developer.android.com/reference/androidx/lifecycle/Lifecycle"></a>Lifecycle Runtime</li>
-<li><a href="https://developer.android.com/reference/androidx/lifecycle/ProcessLifecycleOwner"></a>Lifecycle Process</li>
-<li><a href="https://developer.android.com/guide/navigation/navigation-compose"></a>Navigation Compose</li>
-<li><a href="https://developer.android.com/jetpack/compose/hilt"></a>Hilt for Compose</li>
-<li><a href="https://developer.android.com/training/data-storage/room?hl=fr"></a>Room Persistence Library</li>
-<li><a href="https://developer.android.com/reference/androidx/room/package-summary"></a>Room KTX</li>
-<li><a href="https://developer.android.com/jetpack/androidx/releases/room?hl=fr#ksp">Room Compiler (KSP)</a></li>
-<li><a href="https://kotlinlang.org/docs/coroutines-overview.html#"></a>Kotlin Coroutines</li>
-<li><a href="https://developer.android.com/kotlin/coroutines?hl=fr"></a>Kotlin Coroutines Android</li>
-<li><a href=""></a></li>
-<li><a href=""></a></li>
-<li><a href=""></a></li>
-<li><a href=""></a></li>
-<li><a href=""></a></li>
-<li><a href=""></a></li>
-<li><a href=""></a></li>
-<li><a href=""></a></li>
-<li><a href=""></a></li>
-<li><a href=""></a></li>
-<li><a href=""></a></li>
-<li><a href=""></a></li>
-<li><a href=""></a></li>
+ <li><a href="https://kotlinlang.org/api/core/kotlin-stdlib/">Kotlin Standard Library (Stdlib)</a></li> 
+ <li><a href="https://developer.android.com/topic/libraries/architecture/viewmodel?hl=fr">Lifecycle ViewModel</a></li>
+ <li><a href="https://developer.android.com/topic/libraries/architecture/livedata?hl=fr">Lifecycle LiveData</a></li>
+ <li><a href="https://developer.android.com/reference/androidx/lifecycle/Lifecycle">Lifecycle Runtime</a></li>
+ <li><a href="https://developer.android.com/reference/androidx/lifecycle/ProcessLifecycleOwner">Lifecycle Process</a></li>
+ <li><a href="https://developer.android.com/guide/navigation/navigation-compose">Navigation Compose</a></li>
+ <li><a href="https://developer.android.com/jetpack/compose/hilt">Hilt for Compose</a></li>
+ <li><a href="https://developer.android.com/training/data-storage/room?hl=fr">Room Persistence Library</a></li>
+ <li><a href="https://developer.android.com/reference/androidx/room/package-summary">Room KTX</a></li>
+ <li><a href="https://developer.android.com/jetpack/androidx/releases/room?hl=fr#ksp">Room Compiler (KSP)</a></li>
+ <li><a href="https://kotlinlang.org/docs/coroutines-overview.html#">Kotlin Coroutines</a></li>
+ <li><a href="https://developer.android.com/kotlin/coroutines?hl=fr">Kotlin Coroutines Android</a></li>
 </ul>
 
 <h2>🌍 Language available</h2></br>
 
 <ul>
  <li><img src ="https://github.com/GregBiglione/TaskApp/blob/master/app/src/main/res/drawable/us.png" title = "us" alt = "us" width="20" height="12"> English</li>
-</ul>
- <li><img src ="https://github.com/GregBiglione/netflix/blob/master/assets/images/ua.png" title = "uk" alt = "uk" width="20" height="12"> Ukrainian</li>
 </ul>
