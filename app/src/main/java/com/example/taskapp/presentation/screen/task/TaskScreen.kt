@@ -1,4 +1,4 @@
-package com.example.taskapp.presentation.component
+package com.example.taskapp.presentation.screen.task
 
 import CustomCenterAlignedTopAppBar
 import Dimension.ExtraSmall
@@ -29,13 +29,9 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.example.taskapp.app.constant.Constant.Companion.APP_NAME
-import com.example.taskapp.app.constant.Constant.Companion.UPDATE_TASK_SCREEN_TITLE
-import com.example.taskapp.presentation.navigation.Routes
 import com.example.taskapp.presentation.viewmodel.TaskViewModel
 import com.example.taskapp.ui.theme.DarkTaskColor
-import com.example.taskapp.ui.theme.TaskCardColor
 import com.example.taskapp.ui.theme.White
-import goBack
 import goToAddTaskScreen
 import goToEditTaskScreen
 

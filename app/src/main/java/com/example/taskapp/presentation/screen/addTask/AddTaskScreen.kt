@@ -12,7 +12,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -22,32 +21,20 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.taskapp.app.constant.Constant.Companion.ADD_TASK_SCREEN_TITLE
 import com.example.taskapp.app.constant.Constant.Companion.ERROR_ADD_TOAST_MESSAGE
-import com.example.taskapp.app.constant.Constant.Companion.ERROR_TOAST_MESSAGE
 import com.example.taskapp.app.constant.Constant.Companion.SUCCESS_ADD_TOAST_MESSAGE
-import com.example.taskapp.app.constant.Constant.Companion.SUCCESS_TOAST_MESSAGE
-import com.example.taskapp.app.constant.Constant.Companion.UPDATE_TASK_SCREEN_BUTTON_TITLE
-import com.example.taskapp.app.constant.Constant.Companion.UPDATE_TASK_SCREEN_TITLE
 import com.example.taskapp.presentation.viewmodel.TaskViewModel
 import com.example.taskapp.ui.theme.ErrorColor
 import com.example.taskapp.ui.theme.SuccessColor
-import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun UpdateTaskScreen(
-    title: String = "",
+fun AddTaskScreen(
     navController: NavController,
     viewModel: TaskViewModel = hiltViewModel()
 ) {
-    var newTile by remember {
-        mutableStateOf(title)
-    }
-
-    val taskList by viewModel.taskList.collectAsState()
-    val task = taskList.find {
-        it.title == title
-    }
+    var text by remember { mutableStateOf("") }
     val snackbarHostState = remember { SnackbarHostState() }
     val coroutineScope = rememberCoroutineScope()
     var isClickable by remember { mutableStateOf(true) }
@@ -55,7 +42,7 @@ fun UpdateTaskScreen(
     Scaffold(
         topBar = {
             CustomCenterAlignedTopAppBar(
-                title = UPDATE_TASK_SCREEN_TITLE,
+                title = ADD_TASK_SCREEN_TITLE,
                 onGoBackClick = {
                     goBack(navController)
                 }
@@ -65,7 +52,7 @@ fun UpdateTaskScreen(
             SnackbarHost(
                 hostState = snackbarHostState) { snackbarData ->
                 val isSuccess = snackbarData.visuals.message.contains(
-                    SUCCESS_TOAST_MESSAGE,
+                    SUCCESS_ADD_TOAST_MESSAGE,
                     ignoreCase = true
                 )
 
@@ -88,20 +75,19 @@ fun UpdateTaskScreen(
         ) {
             // Text field --------------------------------------------------------------------------
             CustomOutlinedTextField(
-                title = newTile,
+                title = text,
                 onValueChange = {
-                    newTile = it
+                    text = it
                 },
                 onDone =  {
-                    updateTask(
+                    addTask(
                         coroutineScope = coroutineScope,
-                        newTitle = newTile,
-                        task = task,
+                        text = text,
                         viewmodel = viewModel,
                         snackbarHostState = snackbarHostState,
-                        successMessage = SUCCESS_TOAST_MESSAGE,
+                        successMessage = SUCCESS_ADD_TOAST_MESSAGE,
                         navController = navController,
-                        errorMessage = ERROR_TOAST_MESSAGE,
+                        errorMessage = ERROR_ADD_TOAST_MESSAGE,
                         onStart = {
                             isClickable = false
                         },
@@ -115,17 +101,16 @@ fun UpdateTaskScreen(
             CustomSpacer()
             // Button ------------------------------------------------------------------------------
             CustomButton(
-                UPDATE_TASK_SCREEN_BUTTON_TITLE,
+                ADD_TASK_SCREEN_TITLE,
                 onClick = {
-                    updateTask(
+                    addTask(
                         coroutineScope = coroutineScope,
-                        newTitle = newTile,
-                        task = task,
+                        text = text,
                         viewmodel = viewModel,
                         snackbarHostState = snackbarHostState,
-                        successMessage = SUCCESS_TOAST_MESSAGE,
+                        successMessage = SUCCESS_ADD_TOAST_MESSAGE,
                         navController = navController,
-                        errorMessage = ERROR_TOAST_MESSAGE,
+                        errorMessage = ERROR_ADD_TOAST_MESSAGE,
                         onStart = {
                             isClickable = false
                         },

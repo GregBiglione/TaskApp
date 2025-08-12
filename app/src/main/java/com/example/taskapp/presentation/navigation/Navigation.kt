@@ -3,7 +3,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.taskapp.app.constant.Constant.Companion.TITLE
-import com.example.taskapp.presentation.component.TaskScreen
+import com.example.taskapp.presentation.screen.task.TaskScreen
 import com.example.taskapp.presentation.navigation.Routes
 
 @Composable
