@@ -8,7 +8,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import com.example.taskapp.ui.theme.DarkTaskColor
-import com.example.taskapp.ui.theme.TaskCardColor
 import com.example.taskapp.ui.theme.White
 
 @OptIn(ExperimentalMaterial3Api::class)

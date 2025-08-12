@@ -25,7 +25,10 @@ class Constant {
         const val ERROR_ADD_TOAST_MESSAGE = "Enter a title"
 
         // Error message ---------------------------------------------------------------------------
-        val errorMessage1 = "Unexpected error : "
-        val errorMessage2 = "unknown error"
+        val ERROR_MESSAGE_1 = "Unexpected error : "
+        val ERROR_MESSAGE_2 = "unknown error"
+
+        // No task ---------------------------------------------------------------------------------
+        val NO_TASK = "No task scheduled"
     }
 }

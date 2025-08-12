@@ -6,7 +6,6 @@ import Dimension.Small
 import NoTaskScreen
 import SwipeToDismissCard
 import TaskCard
-import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
@@ -92,7 +91,6 @@ fun TaskScreen(
                             },
                             onIsDoneClick = {
                                 viewModel.updateIsDone(task)
-                                Log.d("Task is done or not", "$taskList\n$task")
                             }
                         )
                     }

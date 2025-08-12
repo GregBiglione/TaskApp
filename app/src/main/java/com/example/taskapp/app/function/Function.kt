@@ -1,15 +1,12 @@
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.ui.graphics.Color
-import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelStoreOwner
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
+import com.example.taskapp.app.constant.Constant.Companion.ERROR_MESSAGE_1
+import com.example.taskapp.app.constant.Constant.Companion.ERROR_MESSAGE_2
 import com.example.taskapp.app.constant.Constant.Companion.TASK_TITLE1
 import com.example.taskapp.app.constant.Constant.Companion.TASK_TITLE2
 import com.example.taskapp.app.constant.Constant.Companion.TASK_TITLE3
-import com.example.taskapp.app.constant.Constant.Companion.errorMessage1
-import com.example.taskapp.app.constant.Constant.Companion.errorMessage2
 import com.example.taskapp.data.local.TaskDatabase
 import com.example.taskapp.data.local.TaskEntity
 import com.example.taskapp.domain.model.Task
@@ -17,7 +14,6 @@ import com.example.taskapp.presentation.navigation.Routes
 import com.example.taskapp.presentation.viewmodel.TaskViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import kotlin.math.max
 
@@ -73,7 +69,7 @@ fun addTask(coroutineScope: CoroutineScope, text: String,
             }
         }
         catch (e: Exception) {
-            snackbarHostState.showSnackbar(errorMessage1 +e.message + errorMessage2)
+            snackbarHostState.showSnackbar(ERROR_MESSAGE_1 +e.message + ERROR_MESSAGE_2)
         }
         finally {
             onComplete()
@@ -102,7 +98,7 @@ fun updateTask(coroutineScope: CoroutineScope, newTitle: String, task: Task?,
             }
         }
         catch (e: Exception) {
-            snackbarHostState.showSnackbar(errorMessage1 +e.message + errorMessage2)
+            snackbarHostState.showSnackbar(ERROR_MESSAGE_1 +e.message + ERROR_MESSAGE_2)
         }
         finally {
             onComplete()
